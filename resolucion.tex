@@ -577,4 +577,70 @@ f(x) = 0.19923 \cdot x^2 - 20.7462 \cdot x + 2915.83
     \includegraphics[width=0.75\textwidth]{nubePolinomica.png}
 \end{center}
 
+
+
+%conclusiòn : 
+\newpage
+\section*{Comparación de modelos y elección de la mejor aproximación}
+
+A partir de los datos relevados de 20 jugadores de Primera División del sistema TMT, se ajustaron tres tipos de funciones: una recta (modelo lineal), una curva exponencial decreciente y una parábola (modelo cuadrático). La comparación entre ellas se basó en el análisis visual, el comportamiento matemático y la coherencia con la realidad del rendimiento en tenis de mesa.
+
+\vspace{0.4cm}
+\noindent\textbf{Modelo lineal}
+
+\[
+f(x) = -8.06 \cdot x + 2729.74
+\]
+
+\begin{itemize}
+    \item Plantea que, a medida que aumenta la edad, el ranking disminuye de forma constante.
+    \item Aunque es simple y fácil de interpretar, no representa bien la realidad del grupo analizado.
+    \item En el gráfico se observa que la recta queda alejada de muchos puntos, especialmente en los extremos.
+    \item En la práctica, el rendimiento no suele tener una relación estrictamente lineal con la edad.
+\end{itemize}
+
+\vspace{0.2cm}
+\noindent\textbf{ Modelo exponencial}
+
+\[
+f(x) = 1563.82 \cdot e^{-0.00415 \cdot x}
+\]
+
+\begin{itemize}
+    \item Sugiere una caída progresiva del ranking con la edad, siguiendo una curva suave.
+    \item Sin embargo, visualmente se ajusta peor que el modelo lineal en algunos tramos.
+    \item La curva desciende demasiado rápido y no refleja bien la dispersión real de los datos.
+    \item La lógica de “decadencia continua” no representa la variabilidad del rendimiento real.
+\end{itemize}
+
+\vspace{0.2cm}
+\noindent\textbf{Modelo cuadrático}
+
+\[
+f(x) = 0.19923 \cdot x^2 - 20.7462 \cdot x + 2915.83
+\]
+
+\begin{itemize}
+    \item Esta parábola se adapta mejor a la forma general de los datos observados.
+    \item Su gráfico pasa más cerca de los puntos reales, reflejando mejor las tendencias.
+    \item Representa una visión más realista: jugadores jóvenes con niveles intermedios y adultos con alto rendimiento.
+    \item Visualmente y conceptualmente, es el modelo más representativo del grupo analizado.
+\end{itemize}
+
+\vspace{0.4cm}
+\noindent\textbf{Conclusión general}
+
+Teniendo en cuenta los aspectos anteriores, se concluye que el \textbf{modelo cuadrático} es el más adecuado para aproximar el ranking en función de la edad. Su flexibilidad permite adaptarse a la forma real de los datos, con un ajuste visual claramente superior.
+
+\vspace{0.4cm}
+\noindent\textbf{Predicción con el modelo elegido}
+
+Como ejemplo de aplicación, estimamos el ranking de un jugador de 29 años usando el modelo cuadrático:
+
+\[
+f(29) = 0.19923 \cdot 29^2 - 20.7462 \cdot 29 + 2915.83 \approx 2481.73
+\]
+
+Por lo tanto, el ranking estimado es de aproximadamente \textbf{2482 puntos}, un valor coherente con los datos observados. Aunque se trata de una estimación, puede utilizarse como una referencia útil para entrenadores o jugadores que deseen prever el rendimiento competitivo en base a la edad.
+
 \end{document}
