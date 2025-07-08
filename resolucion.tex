@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+% Márgenes
+\geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
+
+% No hay número de página en la portada
+\pagestyle{empty}
+
+\begin{document}
+
+% ------------------------ PORTADA ------------------------
+\begin{titlepage}
+    \begin{center}
+        
+        {\Huge\bfseries Aproximación por Mínimos Cuadrados}
+        \vspace*{2cm}
+
+        
+        \includegraphics[width=0.4\textwidth]{"paleta.jpeg"}
+        
+        \vspace*{4cm}
+        
+        
+        \begin{flushleft}
+            {\large\textbf{Materia:} Análisis Numérico}\\[0.5cm]
+
+            {\large\textbf{Comisión:} K3053}\\[0.5cm]
+
+            {\large\textbf{Integrante:} Erik Flores} \\[0.5cm]
+
+            {\large\textbf{Fecha:} 7 de julio de 2025}\\
+        \end{flushleft}
+        
+        \vfill
+        
+    \end{center}
+\end{titlepage}
+
+% ------------------------ CONTENIDO ------------------------
+\newpage
+\pagestyle{plain}  
+    \newpage
+    \section*{Descripción general del problema }
+
+    El presente trabajo práctico tiene como objetivo aplicar el método de mínimos cuadrados para analizar y modelar la relación entre la edad de los jugadores y su puntaje de ranking dentro del sistema oficial de tenis de mesa en Argentina.
+
+    En particular, el estudio se centrará en los jugadores que actualmente compiten en Primera División, una de las categorías más altas del circuito nacional organizado por la plataforma \textit{Tenis de Mesa Para Todos} (TMT). Esta base de datos pública y actualizada brinda información detallada sobre cada jugador federado, incluyendo su edad y el puntaje oficial asignado por el sistema de ranking TMT.
+
+    Dado que el puntaje de ranking varía semanalmente, se ha tomado como referencia la actualización correspondiente al día \textbf{7 de julio de 2025}, para garantizar la coherencia y consistencia de los datos analizados. A partir del listado oficial de 88 jugadores activos en Primera División, se ha seleccionado una muestra representativa de 20 jugadores, procurando abarcar distintas franjas etarias para garantizar diversidad en los datos.
+
+    La intención es construir un modelo matemático que permita estimar qué puntaje de ranking podría alcanzar un jugador en esta categoría en función de su edad, si se mantiene la tendencia observada en los datos actuales.
+
+    Este enfoque no solo permite explorar la dinámica entre edad y rendimiento competitivo en un deporte de alta exigencia como el tenis de mesa, sino también obtener una herramienta predictiva útil, por ejemplo, para entrenadores, jugadores jóvenes o incluso instituciones deportivas que quieran anticipar el potencial competitivo de sus atletas en base a su edad.
+
+
+    \vspace{1cm}
+
+    % Subtítulo y gráfico
+    \subsection*{Nube de puntos}
+
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{nube.png}    
+    \end{center}
+
+
+\newpage
+\section*{Modelos de Aproximación}
+
+    Con el objetivo de analizar y modelar la relación entre la edad de los jugadores y su puntaje en el ranking, se aplicarán tres enfoques distintos de ajuste de datos: una aproximación lineal, una aproximación exponencial y una aproximación cuadrática.
+
+    Estos modelos permitirán evaluar cuál de ellos se ajusta mejor al comportamiento de los datos observados. Para llevar a cabo este análisis, se trabajará con el siguiente conjunto de datos correspondiente a una muestra de jugadores de Primera División:
+
+    \vspace{1.5cm}
+
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+                \textbf{Edad (años)} & \textbf{Ranking} \\
+            \hline
+            19 & 2714 \\
+            17 & 2575 \\
+            22 & 2435 \\
+            20 & 2287 \\
+            26 & 2812 \\
+            23 & 2721 \\
+            23 & 2671 \\
+            25 & 2427 \\
+            30 & 2897 \\
+            27 & 2403 \\
+            28 & 2403 \\
+            32 & 2363 \\
+            34 & 2331 \\
+            37 & 2347 \\
+            38 & 2378 \\
+            36 & 2178 \\
+            44 & 2436 \\
+            43 & 2224 \\
+            42 & 2597 \\
+            47 & 2455 \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{document}
