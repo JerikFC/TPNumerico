@@ -9,6 +9,8 @@
 \usepackage{titling}
 \usepackage{setspace}
 \usepackage{fancyhdr}
+\usepackage{amsmath}
+
 
 % Márgenes
 \geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
@@ -110,4 +112,169 @@
             \hline
         \end{tabular}
     \end{center}
+
+\newpage
+    \section*{Aproximación lineal}
+
+        
+        Para una función lineal de la forma: $f(x) = a \cdot x + b$
+
+
+        se construye el sistema de ecuaciones normales utilizando las siguientes expresiones:
+
+        \[
+        \left\{
+            \begin{array}{l}
+                a \cdot \sum\limits_{i=1}^{n} x_i^2 + b \cdot \sum\limits_{i=1}^{n} x_i = \sum\limits_{i=1}^{n} x_i f(x_i) \\
+                a \cdot \sum\limits_{i=1}^{n} x_i + b \cdot n = \sum\limits_{i=1}^{n} f(x_i)
+            \end{array}
+        \right.
+        \]
+
+
+
+        Donde:
+
+        \begin{itemize}
+            \item $x$ representa la edad de cada jugador
+            \item $y$ representa el puntaje en el ranking
+            \item $n$ es la cantidad total de datos (en este caso, $n = 20$)
+        \end{itemize}
+
+\section*{Resolución del sistema por método matricial}
+
+    Tenemos el sistema:
+
+    \[
+    \left\{
+    \begin{array}{l}
+    a \cdot 20353 + b \cdot 613 = 1509285 \\
+    a \cdot 613 + b \cdot 20 = 49654
+    \end{array}
+    \right.
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Paso 1: Representación matricial}
+
+    \[
+    A \cdot X = B
+    \]
+
+    Donde:
+
+    \[
+    A = 
+    \begin{bmatrix}
+    20353 & 613 \\
+    613 & 20
+    \end{bmatrix}, \quad
+    X = 
+    \begin{bmatrix}
+    a \\
+    b
+    \end{bmatrix}, \quad
+    B = 
+    \begin{bmatrix}
+    1509285 \\
+    49654
+    \end{bmatrix}
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Paso 2: Aplicamos la inversa de A}
+
+    \[
+    X = A^{-1} \cdot B
+    \]
+
+    \vspace{0.3cm}
+    \textbf{ Paso 3: Matriz inversa de A}
+
+    \[
+    A^{-1} = 
+    \begin{bmatrix}
+    0.000639 & -0.01959 \\
+    -0.01959 & 0.650443
+    \end{bmatrix}
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Paso 4: Multiplicación matricial}
+
+    \[
+    X = A^{-1} \cdot B = 
+    \begin{bmatrix}
+    0.000639 & -0.01959 \\
+    -0.01959 & 0.650443
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+    1509285 \\
+    49654
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    -8.0599 \\
+    2729.74
+    \end{bmatrix}
+    \]
+
+    \vspace{0.3cm}
+    \textbf{Función aproximante final}
+
+    \[
+    f(x) = -8.06 \cdot x + 2729.74
+    \]\vspace{1cm}
+
+    A continuación, se presenta la tabla con los cálculos necesarios que se usaron para resolver el sistema de ecuaciones.
+
+        \vspace{0.5cm}
+        \begin{center}
+            \renewcommand{\arraystretch}{1.3}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \textbf{Edad (x)} & \textbf{Ranking (y)} & $x^2$ & $x \cdot y$ \\
+                \hline
+                19 & 2714 & 361 & 51566 \\
+                17 & 2575 & 289 & 43775 \\
+                22 & 2435 & 484 & 53570 \\
+                20 & 2287 & 400 & 45740 \\
+                26 & 2812 & 676 & 73112 \\
+                23 & 2721 & 529 & 62583 \\
+                23 & 2671 & 529 & 61433 \\
+                25 & 2427 & 625 & 60675 \\
+                30 & 2897 & 900 & 86910 \\
+                27 & 2403 & 729 & 64881 \\
+                28 & 2403 & 784 & 67284 \\
+                32 & 2363 & 1024 & 75616 \\
+                34 & 2331 & 1156 & 79254 \\
+                37 & 2347 & 1369 & 86839 \\
+                38 & 2378 & 1444 & 90364 \\
+                36 & 2178 & 1296 & 78408 \\
+                44 & 2436 & 1936 & 107184 \\
+                43 & 2224 & 1849 & 95632 \\
+                42 & 2597 & 1764 & 109074 \\
+                47 & 2455 & 2209 & 115385 \\
+                \hline
+                    \textbf{$\sum x = 613$} & \textbf{$\sum y = 49654$} & \textbf{$\sum x^2 = 20353$} & \textbf{$\sum xy = 1509285$} \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \vspace{0.5cm}
+
+\vspace{1cm}
+
+
+    \vspace{1cm}
+        Ahora se presenta el gráfico de la recta obtenida superpuesta sobre la nube de puntos original, lo cual permite visualizar el ajuste lineal al conjunto de datos:
+
+    \vspace{0.5cm}
+
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{rectaNubeDePuntos.png}
+    \end{center}
+
+
 \end{document}
