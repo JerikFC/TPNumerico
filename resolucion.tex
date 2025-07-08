@@ -277,4 +277,179 @@
     \end{center}
 
 
+
+
+
+
+%exponencial
+
+\section*{Modelo exponencial}
+
+Queremos ajustar un modelo del tipo:
+
+\[
+f(x) = b \cdot e^{a \cdot x}
+\]
+
+Aplicando logaritmo natural a ambos lados:
+
+\[
+\ln(y) = \ln(b) + a \cdot x
+\]
+
+Definimos:
+
+\[
+Y = \ln(y), \quad A = a, \quad B = \ln(b)
+\]
+
+Entonces, el modelo queda linealizado:
+
+\[
+Y = A \cdot x + B
+\]
+
+\vspace{0.5cm}
+\textbf{ Paso 1: Cálculo de valores transformados}
+
+A continuación, se presenta la tabla con los valores de \( x \), \( y \), \( \ln(y) \), \( x \cdot \ln(y) \) y \( x^2 \), utilizados para la estimación por mínimos cuadrados:
+
+\vspace{0.3cm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Edad (x)} & \textbf{Ranking (y)} & \textbf{ln(y)} & \textbf{x·ln(y)} & \textbf{x²} \\
+\hline
+19 & 2714 & 7.9062 & 150.2174 & 361 \\
+17 & 2575 & 7.8536 & 133.5113 & 289 \\
+22 & 2435 & 7.7977 & 171.5494 & 484 \\
+20 & 2287 & 7.7350 & 154.6999 & 400 \\
+26 & 2812 & 7.9417 & 206.4829 & 676 \\
+23 & 2721 & 7.9088 & 181.9014 & 529 \\
+23 & 2671 & 7.8902 & 181.4748 & 529 \\
+25 & 2427 & 7.7944 & 194.8603 & 625 \\
+30 & 2897 & 7.9714 & 239.1429 & 900 \\
+27 & 2403 & 7.7845 & 210.1808 & 729 \\
+28 & 2403 & 7.7845 & 217.9653 & 784 \\
+32 & 2363 & 7.7677 & 248.5660 & 1024 \\
+34 & 2331 & 7.7541 & 263.6378 & 1156 \\
+37 & 2347 & 7.7609 & 287.1530 & 1369 \\
+38 & 2378 & 7.7740 & 295.4126 & 1444 \\
+36 & 2178 & 7.6862 & 276.7018 & 1296 \\
+44 & 2436 & 7.7981 & 343.1170 & 1936 \\
+43 & 2224 & 7.7071 & 331.4037 & 1849 \\
+42 & 2597 & 7.8621 & 330.2087 & 1764 \\
+47 & 2455 & 7.8059 & 366.8765 & 2209 \\
+\hline
+\textbf{613} & \textbf{49654} & \textbf{156.2839} & \textbf{4785.0634} & \textbf{20353} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+\section*{Resolvemos el sistema de ecuación Lineal}
+
+
+Reemplazando con los valores obtenidos:
+
+\[
+\left\{
+\begin{array}{l}
+a \cdot 20353 + b \cdot 613 = 4785.063 \\
+a \cdot 613 + b \cdot 20 = 156.284
+\end{array}
+\right.
+\]
+
+\vspace{0.3cm}
+\textbf{ Paso 2: Método matricial}
+
+\[
+A \cdot X = B
+\]
+
+\[
+A = 
+\begin{bmatrix}
+20353 & 613 \\
+613 & 20
+\end{bmatrix}, \quad
+X = 
+\begin{bmatrix}
+a \\
+b
+\end{bmatrix}, \quad
+B = 
+\begin{bmatrix}
+4785.063 \\
+156.284
+\end{bmatrix}
+\]
+
+\vspace{0.3cm}
+\textbf{ Inversa de A :}
+
+\[
+A^{-1} \approx 
+\begin{bmatrix}
+0.000639 & -0.01959 \\
+-0.01959 & 0.65044
+\end{bmatrix}
+\]
+
+\vspace{0.3cm}
+\textbf{ Multiplicación}
+
+\[
+X = A^{-1} \cdot B =
+\begin{bmatrix}
+0.000639 & -0.01959 \\
+-0.01959 & 0.65044
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+4785.063 \\
+156.284
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+-0.00415 \\
+7.3538
+\end{bmatrix}
+\]
+
+\vspace{0.3cm}
+\textbf{ Paso 3: Volvemos a la función exponencial}
+
+Sabemos que:
+
+\[
+\ln(y) = a \cdot x + \ln(b) \quad \Rightarrow \quad y = b \cdot e^{a \cdot x}
+\]
+
+Ya tenemos:
+
+\[
+a = -0.00415, \quad \ln(b) = 7.3538 \quad \Rightarrow \quad b = e^{7.3538} \approx 1563.82
+\]
+
+\vspace{0.3cm}
+\textbf{Función aproximante final (modelo exponencial):}
+
+\[
+f(x) = 1563.82 \cdot e^{-0.00415 \cdot x}
+\]
+
+\vspace{1cm}
+\subsection*{Visualización del modelo exponencial ajustado}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{nubeExponencial.png}
+\end{center}
+
+
 \end{document}
