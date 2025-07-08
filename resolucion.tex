@@ -452,4 +452,129 @@ f(x) = 1563.82 \cdot e^{-0.00415 \cdot x}
 \end{center}
 
 
+
+
+%Aproximaciòn cuadratica
+\newpage
+\section*{Aproximación cuadrática}
+
+Queremos ajustar una función de la forma:
+
+\[
+f(x) = a \cdot x^2 + b \cdot x + c
+\]
+
+Para obtener los coeficientes \( a \), \( b \) y \( c \), se utiliza el método de mínimos cuadrados, lo cual conduce a un sistema de tres ecuaciones con tres incógnitas basado en sumatorias:
+
+\[
+\left\{
+\begin{array}{l}
+a \cdot \sum x^4 + b \cdot \sum x^3 + c \cdot \sum x^2 = \sum x^2 \cdot y \\
+a \cdot \sum x^3 + b \cdot \sum x^2 + c \cdot \sum x = \sum x \cdot y \\
+a \cdot \sum x^2 + b \cdot \sum x + c \cdot n = \sum y
+\end{array}
+\right.
+\]
+
+\vspace{0.5cm}
+\textbf{Paso 1: Tabla de cálculos para el sistema}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Edad (x)} & \textbf{Ranking (y)} & \(x^2\) & \(x^3\) & \(x^4\) & \(x \cdot y\) & \(x^2 \cdot y\) \\
+\hline
+19 & 2714 & 361 & 6859 & 130321 & 51566 & 979754 \\
+17 & 2575 & 289 & 4913 & 83521 & 43775 & 744175 \\
+22 & 2435 & 484 & 10648 & 234256 & 53570 & 1178540 \\
+20 & 2287 & 400 & 8000 & 160000 & 45740 & 914800 \\
+26 & 2812 & 676 & 17576 & 456976 & 73112 & 1900912 \\
+23 & 2721 & 529 & 12167 & 279841 & 62583 & 1439409 \\
+23 & 2671 & 529 & 12167 & 279841 & 61433 & 1412959 \\
+25 & 2427 & 625 & 15625 & 390625 & 60675 & 1516875 \\
+30 & 2897 & 900 & 27000 & 810000 & 86910 & 2607300 \\
+27 & 2403 & 729 & 19683 & 531441 & 64881 & 1751787 \\
+28 & 2403 & 784 & 21952 & 614656 & 67284 & 1883952 \\
+32 & 2363 & 1024 & 32768 & 1048576 & 75616 & 2419712 \\
+34 & 2331 & 1156 & 39304 & 1336336 & 79254 & 2694636 \\
+37 & 2347 & 1369 & 50653 & 1874161 & 86839 & 3213043 \\
+38 & 2378 & 1444 & 54872 & 2085136 & 90364 & 3433832 \\
+36 & 2178 & 1296 & 46656 & 1679616 & 78408 & 2822688 \\
+44 & 2436 & 1936 & 85184 & 3748096 & 107184 & 4716096 \\
+43 & 2224 & 1849 & 79507 & 3418801 & 95632 & 4112176 \\
+42 & 2597 & 1764 & 74088 & 3111696 & 109074 & 4581108 \\
+47 & 2455 & 2209 & 103823 & 4879681 & 115385 & 5423095 \\
+\hline
+\textbf{613} & \textbf{49654} & \textbf{20353} & \textbf{723445} & \textbf{27153577} & \textbf{1509285} & \textbf{49746849} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+\textbf{Paso 2: Sustituimos en el sistema de ecuaciones}
+
+\[
+\left\{
+\begin{array}{l}
+a \cdot 27153577 + b \cdot 723445 + c \cdot 20353 = 49746849 \\
+a \cdot 723445 + b \cdot 20353 + c \cdot 613 = 1509285 \\
+a \cdot 20353 + b \cdot 613 + c \cdot 20 = 49654
+\end{array}
+\right.
+\]
+
+\vspace{0.5cm}
+\textbf{Paso 3: Representación matricial del sistema}
+
+\[
+A \cdot X = B
+\]
+
+\[
+A =
+\begin{bmatrix}
+27153577 & 723445 & 20353 \\
+723445 & 20353 & 613 \\
+20353 & 613 & 20
+\end{bmatrix}, \quad
+X =
+\begin{bmatrix}
+a \\
+b \\
+c
+\end{bmatrix}, \quad
+B =
+\begin{bmatrix}
+49746849 \\
+1509285 \\
+49654
+\end{bmatrix}
+\]
+
+\vspace{0.5cm}
+\textbf{Solución del sistema (método matricial):}
+
+Los coeficientes obtenidos del modelo cuadrático ajustado son:
+
+\[
+a \approx 0.19923, \quad b \approx -20.7462, \quad c \approx 2915.83
+\]
+
+\vspace{0.3cm}
+\textbf{Función aproximante cuadrático:}
+
+\[
+f(x) = 0.19923 \cdot x^2 - 20.7462 \cdot x + 2915.83
+\]
+
+
+\vspace{1cm}
+\subsection*{Visualización del modelo cuadrático ajustado}
+\vspace{0.5cm}
+
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{nubePolinomica.png}
+\end{center}
+
 \end{document}
